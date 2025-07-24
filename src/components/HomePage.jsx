@@ -56,9 +56,17 @@ const HomePage = () => {
         <BackgroundBanner hoveredSection={hoveredSection} />
         <div className="absolute inset-0 bg-[rgba(94,94,94,0.4)] z-11"></div>
 
-        <div className="absolute bottom-[65%] left-1/2 z-20 transform -translate-x-1/2 text-center w-full px-2 sm:px-4 md:px-8 lg:px-0">
+        <div
+          className="absolute left-1/2 z-20 transform -translate-x-1/2 text-center w-full px-2 sm:px-4 md:px-8 lg:px-0"
+          style={{
+            bottom: '60%',
+            /* Default for mobile */
+          }}
+        >
           <h1
-            className="text-white text-lg sm:text-xl md:text-3xl lg:text-4xl font-normal tracking-tight mb-6 md:mb-10"
+            className="text-white font-normal tracking-tight mb-2 md:mb-10 mt-8 sm:mt-0
+              text-lg xs:text-xl sm:text-2xl md:text-4xl lg:text-5xl
+              "
             style={{
               fontFamily: "'Rock Salt', 'Comic Sans MS', 'Comic Sans', cursive",
               letterSpacing: '-0.09em',
@@ -130,7 +138,7 @@ const HomePage = () => {
               {["Portraits", "Weddings"].map((label) => (
                 <button
                   key={label}
-                  className="group relative px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-full text-white font-serif tracking-wider uppercase transition-transform duration-300 ease-in-out bg-none overflow-hidden text-lg sm:text-xl md:text-2xl lg:text-3xl"
+                  className="group relative px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-full text-white font-serif tracking-wider uppercase transition-transform duration-300 ease-in-out bg-none overflow-hidden text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl"
                   style={{ background: "none", border: "none", fontFamily: "'Times New Roman', Times, serif" }}
                   onClick={() => window.location.href = label === "Portraits" ? "/portraits" : "/weddings"}
                   onMouseEnter={() => setHoveredSection(label.toLowerCase())}

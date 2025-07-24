@@ -16,7 +16,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="relative z-30 w-full px-35 py-12 bg-transparent shadow-sm flex items-center justify-between font-serif">
+    <nav className="relative z-30 w-full px-4 sm:px-8 md:px-12 lg:px-24 py-6 md:py-8 bg-transparent shadow-sm flex items-center font-serif">
       {/* Logo */}
       <div className="flex-shrink-0 flex items-center h-16">
         <img
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
 
       {/* Hamburger Icon (only mobile) */}
-      <div className="md:hidden flex items-center">
+      <div className="md:hidden flex items-center ml-auto">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white focus:outline-none"
@@ -37,8 +37,9 @@ const Navbar = () => {
         </button>
       </div>
 
+
       {/* Desktop Nav Items */}
-      <div className="hidden md:flex flex-grow justify-end space-x-8 pr-8 md:pr-16 lg:pr-24">
+      <div className="hidden md:flex flex-1 justify-end items-center gap-8 lg:gap-12">
         {navLinks.map((link, idx) => (
           <Link
             key={idx}
@@ -58,7 +59,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Social Icons */}
-      <div className="hidden md:flex items-center space-x-4 flex-shrink-0 ml-52">
+      <div className="hidden md:flex items-center gap-4 flex-shrink-0 ml-8">
         <a
           href="https://www.instagram.com/shutterunit/"
           target="_blank"
@@ -97,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-start px-40 py-30 pt-0 space-y-6 font-serif md:hidden z-50">
+        <div className="fixed top-0 left-0 w-full bg-white shadow-md flex flex-col items-start px-6 py-6 space-y-6 font-serif md:hidden z-50 border-b border-gray-200">
           {navLinks.map((link, idx) => (
             <Link
               key={idx}
