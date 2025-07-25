@@ -38,15 +38,14 @@ function ContactPage() {
         <img
           src="/contact.png"
           alt="Photography Portfolio Hero"
-          className="w-full h-full object-cover object-center"
-          style={{ minHeight: "calc(80dvh - 0px)" }}
+          className="w-full h-[40vh] sm:h-[60vh] md:h-[80vh] object-cover object-center"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(32,32,32,0.26)] pointer-events-none"></div>
 
         {/* Title */}
-        <div className="absolute top-[40%] left-30 w-full z-20 flex justify-left px-10">
+        <div className="absolute top-1/3 left-0 w-full z-20 flex justify-center px-4 sm:px-10">
           <h1
-            className="text-white text-4xl font-serif"
+            className="text-white text-2xl sm:text-3xl md:text-4xl font-serif text-center"
             style={{ fontFamily: "'Cinzel', serif" }}
           >
             {/* text goes here if needed */}
@@ -54,10 +53,10 @@ function ContactPage() {
         </div>
 
         {/* Description Paragraph with background bar */}
-        <div className="absolute top-[110%] left-0 w-full z-50 flex justify-center px-12">
-          <div className="bg-[rgba(0,0,0,0.5)] backdrop-blur-md px-10 py-6 rounded-md shadow-lg w-full max-w-5xl">
+        <div className="relative w-full flex justify-center px-2 sm:px-6 md:px-12 mt-4 sm:mt-8">
+          <div className="bg-[rgba(0,0,0,0.5)] backdrop-blur-md px-4 sm:px-8 py-4 sm:py-6 rounded-md shadow-lg w-full max-w-2xl md:max-w-4xl">
             <p
-              className="text-white text-center text-base md:text-lg leading-relaxed tracking-wide font-normal"
+              className="text-white text-center text-sm sm:text-base md:text-lg leading-relaxed tracking-wide font-normal"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Ready to capture your story? Fill out the form below and expect a personal response within 24 hours. Our wedding photography sessions span the entire day—from the quiet anticipation in the morning to the final dance under the stars. Luxury collections also feature handcrafted albums, pre-wedding shoots, and tailored enhancements to make your memories timeless.
@@ -66,25 +65,25 @@ function ContactPage() {
         </div>
 
         {/* Contact Form */}
-        <div className="absolute top-[135%] left-0 w-full z-20 flex flex-col items-center justify-center px-6">
+        <div className="relative w-full flex flex-col items-center justify-center px-2 sm:px-6 md:px-12 mt-4 sm:mt-8 mb-8">
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="bg-gray bg-opacity-5 backdrop-blur-lg p-5 rounded-md w-full max-w-4xl shadow-xl space-y-5 text-sm"
+            className="bg-gray bg-opacity-5 backdrop-blur-lg p-4 sm:p-5 rounded-md w-full max-w-2xl md:max-w-4xl shadow-xl space-y-4 sm:space-y-5 text-sm"
           >
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <input
                 type="text"
                 name="first_name"
                 placeholder="First Name"
-                className="flex-1 border border-gray-300 px-4 py-2 rounded bg-white/80"
+                className="flex-1 border border-gray-300 px-3 py-2 rounded bg-white/80"
                 required
               />
               <input
                 type="text"
                 name="last_name"
                 placeholder="Last Name"
-                className="flex-1 border border-gray-300 px-4 py-2 rounded bg-white/80"
+                className="flex-1 border border-gray-300 px-3 py-2 rounded bg-white/80"
                 required
               />
             </div>
@@ -93,7 +92,7 @@ function ContactPage() {
               type="email"
               name="user_email"
               placeholder="Email"
-              className="w-full border border-gray-300 px-4 py-2 rounded bg-white/80"
+              className="w-full border border-gray-300 px-3 py-2 rounded bg-white/80"
               required
             />
 
@@ -101,13 +100,13 @@ function ContactPage() {
               type="tel"
               name="phone"
               placeholder="Phone"
-              className="w-full border border-gray-300 px-4 py-2 rounded bg-white/80"
+              className="w-full border border-gray-300 px-3 py-2 rounded bg-white/80"
               required
             />
 
             <select
               name="inquiry"
-              className="w-full border border-gray-300 px-4 py-2 rounded bg-white/80"
+              className="w-full border border-gray-300 px-3 py-2 rounded bg-white/80"
               required
             >
               <option value="">Type of Inquiry</option>
@@ -120,7 +119,7 @@ function ContactPage() {
             <textarea
               name="message"
               placeholder="Additional remarks (optional)"
-              className="w-full border border-gray-300 px-4 py-2 rounded h-24 resize-none bg-white/80"
+              className="w-full border border-gray-300 px-3 py-2 rounded h-24 resize-none bg-white/80"
             ></textarea>
 
             <button
