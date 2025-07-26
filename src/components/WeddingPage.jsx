@@ -12,7 +12,7 @@ const WeddingPage = () => {
       <div className="relative flex-grow w-full">
         {/* Background banner image with grayscale */}
         <img
-          src="/banner.png"
+          src="/banner.webp"
           alt="Weddings Banner"
           className="w-full h-full object-cover object-center"
           style={{ minHeight: 'calc(90dvh - 79px)' }}

@@ -36,7 +36,7 @@ function ContactPage() {
       {/* Background and Overlay */}
       <div className="relative flex-grow w-full">
         <img
-          src="/contact.png"
+          src="/contact.webp"
           alt="Photography Portfolio Hero"
           className="w-full h-[40vh] sm:h-[60vh] md:h-[80vh] object-cover object-center"
         />

@@ -12,7 +12,7 @@ const Portraits = () => {
       <div className="relative flex-grow w-full">
         {/* Background banner image with grayscale */}
         <img
-          src="/portraits.png"
+          src="/portraits.webp"
           alt="Portraits Banner"
           className="w-full h-full object-cover object-center"
           style={{ minHeight: 'calc(80dvh - 70px)' }}

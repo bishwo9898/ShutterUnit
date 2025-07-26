@@ -18,13 +18,16 @@ const Navbar = () => {
   return (
     <nav className="relative z-30 w-full px-4 sm:px-8 md:px-12 lg:px-24 py-6 md:py-8 bg-transparent shadow-sm flex items-center font-serif">
       {/* Logo */}
-      <div className="flex-shrink-0 flex items-center h-16">
-        <img
-          src="/unit.png"
-          alt="Logo"
-          className="object-contain w-[180px] md:w-[350px] h-auto"
-        />
-      </div>
+
+        <div className="flex-shrink-0 flex items-center h-16">
+          <Link to="/">
+            <img
+              src="/unit.png"
+              alt="Logo"
+              className="object-contain w-[180px] md:w-[350px] h-auto"
+            />
+          </Link>
+        </div>
 
       {/* Hamburger Icon (only mobile) */}
       <div className="md:hidden flex items-center ml-auto">
