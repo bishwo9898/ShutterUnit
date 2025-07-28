@@ -220,7 +220,7 @@ const HomePage = () => {
       </div>
 
       {/* Remaining content untouched */}
-      ...
+      
 
 
       {/* Keep your remaining layout exactly the same */}
