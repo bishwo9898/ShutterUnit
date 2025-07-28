@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useRef, useEffect } from "react";
 import { FaInstagram, FaTwitter, FaBars, FaTimes } from "react-icons/fa";
+
 
 const Navbar = () => {
   const location = useLocation();
@@ -99,22 +101,33 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="fixed top-0 left-0 w-full bg-white shadow-md flex flex-col items-start px-6 py-6 space-y-6 font-serif md:hidden z-50 border-b border-gray-200">
-          {navLinks.map((link, idx) => (
-            <Link
-              key={idx}
-              to={link.to}
-              onClick={() => setMenuOpen(false)}
-              className={`group relative !text-[#111111e7] text-sm uppercase tracking-widest transition duration-300 ease-in-out hover:!text-[#000000] no-underline ${
-                isActive(link.to) ? '!text-[#000000]' : ''
-              }`}
-            >
-              <span className="block pb-1">{link.name}</span>
-              <span
-                className={`absolute left-0 bottom-0 h-[2px] bg-[#111111d3] transition-all duration-300 ease-in-out ${
-                  isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
+{/* Mobile Dropdown Menu */}
+{menuOpen && (
+  <div className="fixed top-0 left-0 w-full bg-white shadow-md flex flex-col items-start px-10 py-6 space-y-6 font-serif md:hidden z-50 border-b border-gray-200">
+    
+    {/* X Icon */}
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="absolute top-4 right-6 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:scale-105 transition duration-200"
+      aria-label="Close Menu"
+    >
+      &times;
+    </button>
+
+    {/* Navigation Links */}
+    {navLinks.map((link, idx) => (
+      <Link
+        key={idx}
+        to={link.to}
+        onClick={() => setMenuOpen(false)}
+        className={`group relative !text-[#111111e7] text-sm uppercase tracking-widest transition duration-300 ease-in-out hover:!text-[#000000] no-underline ${
+          isActive(link.to) ? '!text-[#000000]' : ''
+        }`}
+      >
+        <span className="block pb-1">{link.name}</span>
+        <span
+          className={`absolute left-0 bottom-0 h-[2px] bg-[#111111d3] transition-all duration-300 ease-in-out ${
+            isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               ></span>
             </Link>
@@ -159,6 +172,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+      
     </nav>
   );
 };
