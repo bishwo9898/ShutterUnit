@@ -50,11 +50,11 @@ const HomePage = () => {
   const secondHalfImages = homeImages.slice(halfwayIndex);
 
   return (
-    <div className="w-screen min-h-[100dvh] flex flex-col bg-white overflow-x-hidden">
+    <div className="w-full min-h-[100dvh] flex flex-col bg-white">
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative h-screen bg-cover bg-center bg-no-repeat max-w-full">
+      <div className="relative min-h-[100dvh] bg-cover bg-center bg-no-repeat w-full">
         <BackgroundBanner hoveredSection={hoveredSection} />
         <div className="absolute inset-0 bg-[rgba(81,80,80,0.33)] z-11"></div>
 
