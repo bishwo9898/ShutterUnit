@@ -56,7 +56,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="relative min-h-[100dvh] bg-cover bg-center bg-no-repeat w-full">
         <BackgroundBanner hoveredSection={hoveredSection} />
-        <div className="absolute inset-0 bg-[rgba(81,80,80,0.33)] z-11"></div>
+        <div className="absolute inset-0 bg-[rgba(81,80,80,0.25)] z-11"></div>
 
         <div
           className="absolute bottom-[65%] left-1/2 z-20 transform -translate-x-1/2 text-center w-full px-4 sm:px-6 md:px-12 lg:px-0"
