@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 // 2. Third-party libraries
 import { useNavigate } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/next"
 
 // 3. Internal project components & assets
 import Navbar from "./Navbar";
@@ -184,6 +185,7 @@ const HomePage = () => {
               ))}
             </div>
           )}
+          <Analytics/>
 
           <style>{`
             @keyframes gradient-border {
