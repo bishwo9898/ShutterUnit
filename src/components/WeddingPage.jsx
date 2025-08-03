@@ -1,38 +1,37 @@
 import React from 'react';
 import Navbar from './Navbar';
 import PhotoGallery from './PhotoGallery';
-import { weddingsImages } from '../imageLists'; // Your generated list of wedding images
+import { weddingsImages } from '../imageLists';
 
 const WeddingPage = () => {
   return (
     <div className="w-screen min-h-[100dvh] flex flex-col bg-white">
       <Navbar />
 
-      {/* Container for banner image + overlay + title */}
-      <div className="relative flex-grow w-full">
-        {/* Background banner image with grayscale */}
+      {/* Banner section with grayscale filter and overlay */}
+      <div className="relative w-full h-[60vh] md:h-[120vh]">
+        {/* Grayscale background image */}
         <img
           src="/banner.webp"
           alt="Weddings Banner"
           className="w-full h-full object-cover object-center"
-          style={{ minHeight: 'calc(90dvh - 79px)' }}
         />
 
-        {/* Black overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] pointer-events-none"></div>
+        {/* Semi-transparent black overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0)] pointer-events-none"></div>
 
-        {/* Title */}
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-left px-100">
+        {/* Title (empty for now, can be filled later) */}
+        <div className="absolute inset-0 flex items-end md:items-center px-8 md:px-20 pb-10 md:pb-0">
           <h1
-            className="text-white text-4xl font-serif"
+            className="text-white text-3xl md:text-4xl font-serif"
             style={{ fontFamily: "'Cinzel', serif" }}
           >
-            {/* text goes here if needed */}
+            {/* Add a title here if desired */}
           </h1>
         </div>
       </div>
 
-      {/* Wedding Gallery */}
+      {/* Wedding Gallery immediately after banner */}
       <PhotoGallery imageFolder="weddings" imageNames={weddingsImages} />
     </div>
   );

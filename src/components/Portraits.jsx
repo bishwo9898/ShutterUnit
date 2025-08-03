@@ -1,38 +1,37 @@
 import React from 'react';
 import Navbar from './Navbar';
 import PhotoGallery from './PhotoGallery';
-import { portraitsImages } from '../imageLists'; //generated list of wedding images
+import { portraitsImages } from '../imageLists';
 
 const Portraits = () => {
   return (
     <div className="w-screen min-h-[100dvh] flex flex-col bg-white">
       <Navbar />
 
-      {/* Container for banner image + overlay + title */}
-      <div className="relative flex-grow w-full">
-        {/* Background banner image with grayscale */}
+      {/* Banner section with responsive height */}
+      <div className="relative w-full h-[60vh] md:h-[80vh]">
+        {/* Grayscale banner image */}
         <img
-          src="/portraits.webp"
+          src="/portraits.jpeg"
           alt="Portraits Banner"
-          className="w-full h-full object-cover object-center"
-          style={{ minHeight: 'calc(80dvh - 70px)' }}
+          className="w-full h-full object-cover object-center filter grayscale"
         />
 
-        {/* Black overlay */}
+        {/* Transparent overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0)] pointer-events-none"></div>
 
-        {/* Title */}
-        <div className="absolute bottom-20 left-0 w-full h-full flex items-center justify-left px-100">
+        {/* Optional title overlay */}
+        <div className="absolute inset-0 flex items-end md:items-center px-8 md:px-20 pb-10 md:pb-0">
           <h1
-            className="text-white text-4xl font-serif"
+            className="text-white text-3xl md:text-4xl font-serif"
             style={{ fontFamily: "'Cinzel', serif" }}
           >
-            {/* text goes here if needed */}
+            {/* Title goes here if needed */}
           </h1>
         </div>
       </div>
 
-      {/* Wedding Gallery */}
+      {/* Portrait Gallery starts immediately after the banner */}
       <PhotoGallery imageFolder="portraits" imageNames={portraitsImages} />
     </div>
   );

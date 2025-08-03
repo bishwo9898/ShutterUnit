@@ -1,13 +1,19 @@
+// 1. React core
 import React, { useEffect, useState } from "react";
+
+// 2. Third-party libraries
+import { useNavigate } from "react-router-dom";
+
+// 3. Internal project components & assets
 import Navbar from "./Navbar";
+import BackgroundBanner from "./BackgroundBanner";
 import PhotoGallery from "./PhotoGallery";
 import { homeImages } from "../imageLists";
-import BackgroundBanner from "./BackgroundBanner";
-import { useNavigate } from "react-router-dom";
+
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const fullText = "WHAT WOULD YOU LIKE TO CAPTURE?";
+  const fullText = "W";
   const [displayedText, setDisplayedText] = useState("");
   const [hoveredSection, setHoveredSection] = useState(null);
   const [headingDone, setHeadingDone] = useState(false);
@@ -50,16 +56,17 @@ const HomePage = () => {
   const secondHalfImages = homeImages.slice(halfwayIndex);
 
   return (
-    <div className="w-full min-h-[100dvh] flex flex-col bg-white">
+    <div className="w-full min-h-screen flex flex-col bg-white">
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative min-h-[100dvh] bg-cover bg-center bg-no-repeat w-full">
+      <div className="relative min-h-screen bg-cover bg-center bg-no-repeat w-full">
         <BackgroundBanner hoveredSection={hoveredSection} />
-        <div className="absolute inset-0 bg-[rgba(81,80,80,0.25)] z-11"></div>
+        <div className="absolute inset-0 bg-[rgba(104,104,104,0.26)] z-11"></div>
+
 
         <div
-          className="absolute bottom-[65%] left-1/2 z-20 transform -translate-x-1/2 text-center w-full px-4 sm:px-6 md:px-12 lg:px-0"
+          className="absolute bottom-[55%] left-1/2 z-40 transform -translate-x-1/2 text-center w-full px-4 sm:px-6 md:px-12 lg:px-0"
           style={{
             maxWidth: "70vw",
             overflowX: "visible",
@@ -67,7 +74,7 @@ const HomePage = () => {
           }}
         >
           <h1
-            className="text-white font-normal tracking-tight mb-6 md:mb-10 text-center"
+            className="text-zinc-300 font-normal tracking-tight mb-6 md:mb-10 text-center"
             style={{
               fontFamily: "'Rock Salt', 'Comic Sans MS', 'Comic Sans', cursive",
               fontWeight: 400,
@@ -164,7 +171,7 @@ const HomePage = () => {
                         key={i}
                         style={{
                           display: "inline-block",
-                          transition: "transform 0.2s",
+                          transition: "transform 0.1s",
                           transform: `rotate(${i % 2 === 0 ? -5 : 5}deg)`,
                           userSelect: "none",
                         }}
@@ -179,7 +186,6 @@ const HomePage = () => {
           )}
 
           <style>{`
-            @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
             @keyframes gradient-border {
               0% {
                 border-image: linear-gradient(90deg, #ec4899, #a78bfa, #3b82f6) 1;
@@ -267,7 +273,6 @@ const HomePage = () => {
       </div>
 
       <PhotoGallery imageFolder="home" imageNames={firstHalfImages} />
-
       <div className="w-full bg-[#302f2f] py-12 sm:py-16 md:py-24 relative flex flex-col items-center justify-center px-4 sm:px-8">
         <div
           className="absolute top-6 sm:top-10 md:top-12 left-1/2 transform -translate-x-1/2 border-t border-white"

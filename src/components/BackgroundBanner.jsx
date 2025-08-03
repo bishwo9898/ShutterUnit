@@ -11,10 +11,8 @@ const portraitImages = [
   "/banners/portrait3.png",
 ];
 
-
 const BackgroundBanner = ({ hoveredSection }) => {
-  // Persist the last hovered section until a new button is hovered
-  const [activeSection, setActiveSection] = useState(null); // 'weddings' | 'portraits' | null
+  const [activeSection, setActiveSection] = useState(null);
   const [imagesArr, setImagesArr] = useState([...weddingImages, ...portraitImages]);
   const [index, setIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(true);
@@ -37,19 +35,15 @@ const BackgroundBanner = ({ hoveredSection }) => {
       setIndex(0);
       setTimeout(() => setTransitioning(true), 20);
     } else if (!activeSection && hoveredSection == null) {
-      // On first load, show all images
       setImagesArr([...weddingImages, ...portraitImages]);
       setTransitioning(false);
       setIndex(0);
       setTimeout(() => setTransitioning(true), 20);
     }
-    // If hoveredSection is null but activeSection is set, do nothing (persist last hovered)
   }, [hoveredSection, activeSection]);
 
-  // For seamless loop, clone only the first image at the end
   const images = [...imagesArr, imagesArr[0]];
 
-  // Slide interval
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setIndex((prev) => prev + 1);
@@ -58,22 +52,18 @@ const BackgroundBanner = ({ hoveredSection }) => {
     return () => clearInterval(intervalRef.current);
   }, [imagesArr]);
 
-  // Handle seamless loop for animation (always forward)
   useEffect(() => {
     if (!transitioning) return;
     if (index === images.length - 1) {
       timeoutRef.current = setTimeout(() => {
         setTransitioning(false);
-        setIndex(0); // Always jump to index 0 for right-to-left
+        setIndex(0);
       }, slideDuration);
     } else {
       setTransitioning(true);
     }
     return () => clearTimeout(timeoutRef.current);
   }, [index, images.length]);
-
-  // Reset transition after jump
-  // No need for extra transition reset, handled above
 
   const sliderStyle = {
     display: "flex",
@@ -89,7 +79,7 @@ const BackgroundBanner = ({ hoveredSection }) => {
         {images.map((img, idx) => (
           <div
             key={idx}
-            className="w-full h-full flex-shrink-0"
+            className="w-full h-full flex-shrink-0 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
             style={{
               backgroundImage: `url(${img})`,
               backgroundSize: "cover",

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useRef, useEffect } from "react";
 import { FaInstagram, FaTwitter, FaBars, FaTimes } from "react-icons/fa";
-
 
 const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animateMenu, setAnimateMenu] = useState(false);
 
   const navLinks = [
     { name: 'Home', to: '/' },
@@ -17,19 +16,29 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  // Control animation state for menu open/close
+  useEffect(() => {
+    if (menuOpen) {
+      setAnimateMenu(true);
+    } else {
+      // Delay unmount by animation duration (300ms) to allow fade out
+      const timer = setTimeout(() => setAnimateMenu(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [menuOpen]);
+
   return (
     <nav className="relative z-30 w-full px-4 sm:px-8 md:px-12 lg:px-24 py-6 md:py-8 bg-transparent shadow-sm flex items-center font-serif">
       {/* Logo */}
-
-        <div className="flex-shrink-0 flex items-center h-16">
-          <Link to="/">
-            <img
-              src="/unit.png"
-              alt="Logo"
-              className="object-contain w-[180px] md:w-[350px] h-auto"
-            />
-          </Link>
-        </div>
+      <div className="flex-shrink-0 flex items-center h-16">
+        <Link to="/">
+          <img
+            src="/unit.png"
+            alt="Logo"
+            className="object-contain w-[180px] md:w-[350px] h-auto"
+          />
+        </Link>
+      </div>
 
       {/* Hamburger Icon (only mobile) */}
       <div className="md:hidden flex items-center ml-auto">
@@ -41,7 +50,6 @@ const Navbar = () => {
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
-
 
       {/* Desktop Nav Items */}
       <div className="hidden md:flex flex-1 justify-end items-center gap-8 lg:gap-12">
@@ -101,33 +109,38 @@ const Navbar = () => {
         </a>
       </div>
 
-{/* Mobile Dropdown Menu */}
-{menuOpen && (
-  <div className="fixed top-0 left-0 w-full bg-white shadow-md flex flex-col items-start px-10 py-6 space-y-6 font-serif md:hidden z-50 border-b border-gray-200">
-    
-    {/* X Icon */}
-    <button
-      onClick={() => setMenuOpen(false)}
-      className="absolute top-4 right-6 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:scale-105 transition duration-200"
-      aria-label="Close Menu"
-    >
-      &times;
-    </button>
+      {/* Mobile Dropdown Menu with animation */}
+      {(menuOpen || animateMenu) && (
+        <div
+          className={`fixed top-0 left-0 w-full bg-white shadow-md flex flex-col items-start px-10 py-6 space-y-6 font-serif md:hidden z-50 border-b border-gray-200
+          transform origin-top transition-all duration-300
+          ${menuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}
+          `}
+          aria-label="Mobile menu"
+        >
+          {/* X Icon */}
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="absolute top-4 right-6 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-xl hover:scale-105 transition duration-200"
+            aria-label="Close Menu"
+          >
+            &times;
+          </button>
 
-    {/* Navigation Links */}
-    {navLinks.map((link, idx) => (
-      <Link
-        key={idx}
-        to={link.to}
-        onClick={() => setMenuOpen(false)}
-        className={`group relative !text-[#111111e7] text-sm uppercase tracking-widest transition duration-300 ease-in-out hover:!text-[#000000] no-underline ${
-          isActive(link.to) ? '!text-[#000000]' : ''
-        }`}
-      >
-        <span className="block pb-1">{link.name}</span>
-        <span
-          className={`absolute left-0 bottom-0 h-[2px] bg-[#111111d3] transition-all duration-300 ease-in-out ${
-            isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
+          {/* Navigation Links */}
+          {navLinks.map((link, idx) => (
+            <Link
+              key={idx}
+              to={link.to}
+              onClick={() => setMenuOpen(false)}
+              className={`group relative !text-[#111111e7] text-sm uppercase tracking-widest transition duration-300 ease-in-out hover:!text-[#000000] no-underline ${
+                isActive(link.to) ? '!text-[#000000]' : ''
+              }`}
+            >
+              <span className="block pb-1">{link.name}</span>
+              <span
+                className={`absolute left-0 bottom-0 h-[2px] bg-[#111111d3] transition-all duration-300 ease-in-out ${
+                  isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               ></span>
             </Link>
@@ -150,9 +163,9 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="w-6 h-6"
+              className="w-6 h-6 text-black"
             >
-              <FaTwitter className="w-6 h-6 text-black" />
+              <FaTwitter className="w-6 h-6" />
             </a>
 
             <a
@@ -172,7 +185,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-      
     </nav>
   );
 };
