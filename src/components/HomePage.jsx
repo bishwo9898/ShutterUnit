@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 // 2. Third-party libraries
 import { useNavigate } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/next"
 
 // 3. Internal project components & assets
 import Navbar from "./Navbar";
@@ -59,7 +58,6 @@ const HomePage = () => {
   return (
     <div className="w-full min-h-screen flex flex-col bg-white">
       <Navbar />
-           <Analytics/>
 
       {/* Hero Section */}
       <div className="relative min-h-screen bg-cover bg-center bg-no-repeat w-full">
