@@ -59,11 +59,13 @@ const HomePage = () => {
   return (
     <div className="w-full min-h-screen flex flex-col bg-white">
       <Navbar />
+           <Analytics/>
 
       {/* Hero Section */}
       <div className="relative min-h-screen bg-cover bg-center bg-no-repeat w-full">
         <BackgroundBanner hoveredSection={hoveredSection} />
         <div className="absolute inset-0 bg-[rgba(104,104,104,0.26)] z-11"></div>
+   
 
 
         <div
@@ -185,7 +187,6 @@ const HomePage = () => {
               ))}
             </div>
           )}
-          <Analytics/>
 
           <style>{`
             @keyframes gradient-border {
