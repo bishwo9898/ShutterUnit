@@ -1,26 +1,36 @@
 <!doctype html>
 <html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/vite.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Merriweather&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/vite.png" />
 
+  <!-- ✅ Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- ✅ Updated title and description -->
-    <title>Shutter Unit | Professional Photography Portfolio</title>
-    <meta name="description" content="Shutter Unit is a creative photography brand showcasing weddings, portraits, and event photography in a modern and timeless style." />
+  <!-- ✅ Load fonts early -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 
-    <!-- ✅ Open Graph for social sharing -->
-    <meta property="og:title" content="Shutter Unit | Professional Photography Portfolio" />
-    <meta property="og:description" content="Explore stunning wedding, portrait, and event photography from Shutter Unit." />
-    <meta property="og:image" content="https://shutterunit.com/og-image.jpg" />
-    <meta property="og:url" content="https://shutterunit.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
+  <!-- ✅ Fix layout shift due to fonts only -->
+  <style>
+    body {
+      font-display: swap;
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shutter Unit | Professional Photography Portfolio</title>
+  <meta name="description" content="Shutter Unit is a creative photography brand showcasing weddings, portraits, and event photography in a modern and timeless style." />
+  <meta property="og:title" content="Shutter Unit | Professional Photography Portfolio" />
+  <meta property="og:description" content="Explore stunning wedding, portrait, and event photography from Shutter Unit." />
+  <meta property="og:image" content="https://shutterunit.com/og-image.jpg" />
+  <meta property="og:url" content="https://shutterunit.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 // 3. Internal project components & assets
 import Navbar from "./Navbar";
 import BackgroundBanner from "./BackgroundBanner";
-import PhotoGallery from "./PhotoGallery";
 import { homeImages } from "../imageLists";
+import PhotoGallery from "./PhotoGallery";
+
 
 
 const HomePage = () => {
@@ -62,7 +63,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="relative min-h-screen bg-cover bg-center bg-no-repeat w-full">
         <BackgroundBanner hoveredSection={hoveredSection} />
-        <div className="absolute inset-0 bg-[rgba(104,104,104,0.26)] z-11"></div>
+        <div className="absolute inset-0 bg-[rgba(104,104,104,0.09)] z-11"></div>
    
 
 
@@ -72,15 +73,17 @@ const HomePage = () => {
             maxWidth: "70vw",
             overflowX: "visible",
             margin: "0 auto",
+            minHeight: "8rem"  // ✅ Prevents layout jump
           }}
         >
+
           <h1
             className="text-zinc-300 font-normal tracking-tight mb-6 md:mb-10 text-center"
             style={{
               fontFamily: "'Rock Salt', 'Comic Sans MS', 'Comic Sans', cursive",
               fontWeight: 400,
               WebkitFontSmoothing: "antialiased",
-              fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)",
+              fontSize: "clamp(1.4rem, 2.8vw, 2.9rem)",
               lineHeight: 1.2,
               whiteSpace: "normal",
               wordBreak: "keep-word",
@@ -186,43 +189,6 @@ const HomePage = () => {
             </div>
           )}
 
-          <style>{`
-            @keyframes gradient-border {
-              0% {
-                border-image: linear-gradient(90deg, #ec4899, #a78bfa, #3b82f6) 1;
-                opacity: 0;
-              }
-              100% {
-                border-image: linear-gradient(90deg, #ec4899, #a78bfa, #3b82f6) 1;
-                opacity: 1;
-              }
-            }
-            .animate-gradient-border {
-              border-width: 2px;
-              border-style: solid;
-              border-image: linear-gradient(90deg, #ec4899, #a78bfa, #3b82f6) 1;
-              opacity: 1;
-              animation: gradient-border 0.6s forwards;
-            }
-            @media (min-width: 640px) {
-              h1 {
-                font-size: 2.8rem !important;
-                letter-spacing: -0.07em !important;
-              }
-            }
-            @media (min-width: 768px) {
-              h1 {
-                font-size: 3.6rem !important;
-                letter-spacing: -0.09em !important;
-              }
-            }
-            @media (min-width: 1024px) {
-              h1 {
-                font-size: 4.25rem !important;
-                letter-spacing: -0.09em !important;
-              }
-            }
-          `}</style>
         </div>
       </div>
 
