@@ -14,7 +14,7 @@ const Portraits = () => {
         <img
           src="/portraits.jpeg"
           alt="Portraits Banner"
-          className="w-full h-full object-cover object-center filter grayscale"
+          className="w-full h-full object-cover object-center"
         />
 
         {/* Transparent overlay */}
