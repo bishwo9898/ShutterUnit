@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const weddingImages = [
-  "/banners/wedding1.png",
-  "/banners/wedding2.png",
-  "/banners/wedding3.png",
-];
+
 const portraitImages = [
   "/banners/portrait1.png",
   "/banners/portrait2.png",
   "/banners/portrait3.png",
 ];
+
+const weddingImages = [
+  "/banners/wedding1.png",
+  "/banners/wedding2.png",
+  "/banners/wedding3.png",
+];
+
 
 const BackgroundBanner = ({ hoveredSection }) => {
   const [activeSection, setActiveSection] = useState(null);
