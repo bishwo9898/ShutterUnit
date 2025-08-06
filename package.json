@@ -11,12 +11,15 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/url-gen": "^1.21.0",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.11",
     "@vercel/analytics": "^1.5.0",
     "aos": "^2.3.4",
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "framer-motion": "^12.23.3",
     "nodemailer": "^7.0.5",

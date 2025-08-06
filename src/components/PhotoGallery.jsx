@@ -4,7 +4,7 @@ import "yet-another-react-lightbox/styles.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const PhotoGallery = ({ imageFolder, imageNames }) => {
+const PhotoGallery = ({ imageNames }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [allLoaded, setAllLoaded] = useState(false);
@@ -28,9 +28,9 @@ const PhotoGallery = ({ imageFolder, imageNames }) => {
     AOS.init({ duration: 800, once: true });
 
     let loadedCount = 0;
-    shuffledImages.forEach((filename) => {
+    shuffledImages.forEach((url) => {
       const img = new Image();
-      img.src = `/${imageFolder}/${filename}`;
+      img.src = url;
       img.onload = () => {
         loadedCount++;
         if (loadedCount === shuffledImages.length) {
@@ -39,10 +39,12 @@ const PhotoGallery = ({ imageFolder, imageNames }) => {
         }
       };
     });
-  }, [imageFolder, shuffledImages]);
+  }, [shuffledImages]);
 
-  const isPortrait = (filename) =>
-    filename.toLowerCase().includes("portrait") || filename.includes("_p");
+  const isPortrait = (url) => {
+    const lower = url.toLowerCase();
+    return lower.includes("portrait") || lower.includes("_p");
+  };
 
   const goPrev = () => {
     setLightboxIndex((prev) => (prev === 0 ? shuffledImages.length - 1 : prev - 1));
@@ -65,7 +67,7 @@ const PhotoGallery = ({ imageFolder, imageNames }) => {
     <div className="w-full max-w-full mx-auto px-10 ml-3 py-22">
       {allLoaded ? (
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-1 space-y-2">
-          {shuffledImages.map((filename, i) => (
+          {shuffledImages.map((url, i) => (
             <div
               key={i}
               data-aos="fade-up"
@@ -76,21 +78,19 @@ const PhotoGallery = ({ imageFolder, imageNames }) => {
               }}
             >
               <img
-                src={`/${imageFolder}/${filename}`}
+                src={url}
                 alt={`Gallery ${i}`}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
                 className={`w-full h-auto object-cover transition-transform duration-300 hover:scale-[1.02] ${
-                  isPortrait(filename)
-                    ? "md:w-[120%]"
-                    : "md:w-[170%] mx-auto"
+                  isPortrait(url) ? "md:w-[120%]" : "md:w-[170%] mx-auto"
                 }`}
                 style={{
                   display: "block",
                   margin: "0 auto",
-                  maxWidth: isPortrait(filename) ? "100%" : "100%",
-                  maxHeight: isPortrait(filename) ? "300px" : "none",
+                  maxWidth: isPortrait(url) ? "100%" : "100%",
+                  maxHeight: isPortrait(url) ? "300px" : "none",
                   objectFit: "cover",
                 }}
               />
@@ -113,9 +113,7 @@ const PhotoGallery = ({ imageFolder, imageNames }) => {
             cursor: "default",
           },
         }}
-        slides={shuffledImages.map((filename) => ({
-          src: `/${imageFolder}/${filename}`,
-        }))}
+        slides={shuffledImages.map((url) => ({ src: url }))}
       />
     </div>
   );
