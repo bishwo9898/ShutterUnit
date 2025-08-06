@@ -70,36 +70,6 @@ const Portraits = () => {
         />
       </div>
 
-      <PhotoGallery imageFolder="portraits" imageNames={firstHalfImages} />
-      <div className="w-full bg-[#302f2f] py-12 sm:py-16 md:py-24 relative flex flex-col items-center justify-center px-4 sm:px-8">
-        <div
-          className="absolute top-6 sm:top-10 md:top-12 left-1/2 transform -translate-x-1/2 border-t border-white"
-          style={{ width: "180px", opacity: 0.6 }}
-        />
-        <h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[Cinzel,serif] tracking-widest text-gray-300 mb-4 sm:mb-6 text-center"
-          style={{ fontWeight: 400 }}
-        >
-          Seen enough? Let's Connect{" "}
-          <a
-            href="/contact"
-            className="text-white uppercase hover:text-white-50 font-normal"
-          >
-            HERE
-          </a>
-        </h2>
-        <p
-          className="text-sm sm:text-base md:text-lg font-[Cinzel,serif] text-gray-400 tracking-wide mt-1 sm:mt-2 text-center max-w-lg"
-          style={{ fontWeight: 300 }}
-        >
-          Or keep scrolling for a bit more
-        </p>
-        <div
-          className="absolute bottom-6 sm:bottom-10 md:bottom-12 left-1/2 transform -translate-x-1/2 border-b border-white"
-          style={{ width: "180px", opacity: 0.6 }}
-        />
-      </div>
-
       <PhotoGallery imageFolder="portraits" imageNames={secondHalfImages} />
     </div>
   );
