@@ -204,7 +204,7 @@ const HomePage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
-            backgroundImage: "url('/why.webp')",
+            backgroundImage: "url('https://res.cloudinary.com/das25qoma/image/upload/v1754523933/punkun_3_p6bjhg.webp')",
             filter: "grayscale(100%) brightness(1)",
           }}
         />

@@ -50,7 +50,7 @@ const Navbar = () => {
       {/* Logo */}
       <div
         className="flex-shrink-0 flex items-center h-16"
-        data-aos="fade-right"
+        data-aos="fade-down"
         data-aos-delay="100"
       >
         <Link to="/">
@@ -65,7 +65,7 @@ const Navbar = () => {
       {/* Hamburger Icon (mobile only) */}
       <div
         className="md:hidden flex items-center ml-auto"
-        data-aos="fade-left"
+        data-aos="fade-down"
         data-aos-delay="300"
       >
         <button
@@ -80,7 +80,7 @@ const Navbar = () => {
       {/* Desktop Nav Items */}
       <div
         className="hidden md:flex flex-1 justify-end items-center gap-8 lg:gap-12"
-        data-aos="fade-left"
+        data-aos="fade-down"
         data-aos-delay="200"
       >
         {navLinks.map((link, idx) => (
@@ -104,7 +104,7 @@ const Navbar = () => {
       {/* Desktop Social Icons */}
       <div
         className="hidden md:flex items-center gap-4 flex-shrink-0 ml-8"
-        data-aos="fade-left"
+        data-aos="fade-down"
         data-aos-delay="300"
       >
         <a href="https://www.instagram.com/shutterunit/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
