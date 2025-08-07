@@ -19,7 +19,7 @@ const Portraits = () => {
       <div className="relative w-full h-[60vh] md:h-[80vh]">
         {/* Grayscale banner image */}
         <img
-          src="/portraits.jpeg"
+          src="https://res.cloudinary.com/das25qoma/image/upload/v1754509093/with_shadow_nhar9d.webp"
           alt="Portraits Banner"
           className="w-full h-full object-cover object-center"
         />

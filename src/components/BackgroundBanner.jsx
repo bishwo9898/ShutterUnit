@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 
 
 const portraitImages = [
-  "/banners/portrait1.png",
-  "/banners/portrait2.png",
-  "/banners/portrait3.png",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754509090/toughhhhhhnh_oo2jgg.webp",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754509055/faith_11_ba9fz9.webp",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754509047/cap_3_phl4dc.webp",
 ];
 
 const weddingImages = [
-  "/banners/wedding1.png",
-  "/banners/wedding2.png",
-  "/banners/wedding3.png",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754509186/eunice_187_jqn2gk.webp",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754509208/n1_absgnc.webp",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754514181/mb21_bu3thm.webp",
 ];
 
 
