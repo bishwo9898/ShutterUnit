@@ -14,13 +14,14 @@ const WeddingPage = () => {
       <Navbar />
 
       {/* Banner section with grayscale filter and overlay */}
-      <div className="relative w-full h-[60vh] md:h-[120vh]">
-        {/* Grayscale background image */}
-        <img
-          src="/banner.webp"
-          alt="Weddings Banner"
-          className="w-full h-full object-cover object-center"
-        />
+        <div className="relative w-full h-[60vh] md:h-[90vh] overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/das25qoma/image/upload/v1754523407/n10_gtqhah.webp"
+            alt="Weddings Banner"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full h-auto"
+          />
+
+
 
         {/* Semi-transparent black overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0)] pointer-events-none"></div>

@@ -16,10 +16,10 @@ const Portraits = () => {
       <Navbar />
 
       {/* Banner section with responsive height */}
-      <div className="relative w-full h-[60vh] md:h-[80vh]">
+      <div className="relative w-full h-[60vh] md:h-[90vh]">
         {/* Grayscale banner image */}
         <img
-          src="https://res.cloudinary.com/das25qoma/image/upload/v1754509093/with_shadow_nhar9d.webp"
+          src="https://res.cloudinary.com/das25qoma/image/upload/v1754523956/with_shadow_dj8vtp.webp"
           alt="Portraits Banner"
           className="w-full h-full object-cover object-center"
         />
