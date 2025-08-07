@@ -10,7 +10,7 @@ const portraitImages = [
 const weddingImages = [
   "https://res.cloudinary.com/das25qoma/image/upload/v1754509186/eunice_187_jqn2gk.webp",
   "https://res.cloudinary.com/das25qoma/image/upload/v1754509208/n1_absgnc.webp",
-  "https://res.cloudinary.com/das25qoma/image/upload/v1754514181/mb21_bu3thm.webp",
+  "https://res.cloudinary.com/das25qoma/image/upload/v1754523406/n4_l9jah1.webp",
 ];
 
 
